@@ -1,5 +1,7 @@
 /*
- * Copyright (C) 2010 Google, Inc.
+ * GPU tracepoints
+ *
+ * Copyright (C) 2013 Google, Inc.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -12,11 +14,10 @@
  *
  */
 
-#ifndef _INCLUDE_LINUX_PLATFORM_DATA_RAM_CONSOLE_H_
-#define _INCLUDE_LINUX_PLATFORM_DATA_RAM_CONSOLE_H_
+#include <linux/module.h>
 
-struct ram_console_platform_data {
-	const char *bootinfo;
-};
+#define CREATE_TRACE_POINTS
+#include <trace/events/gpu.h>
 
-#endif /* _INCLUDE_LINUX_PLATFORM_DATA_RAM_CONSOLE_H_ */
+EXPORT_TRACEPOINT_SYMBOL(gpu_sched_switch);
+EXPORT_TRACEPOINT_SYMBOL(gpu_job_enqueue);
